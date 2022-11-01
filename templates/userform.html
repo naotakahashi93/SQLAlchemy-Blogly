@@ -1,0 +1,20 @@
+{% extends "base.html" %} 
+ 
+{% block title %} ADD USER FORM {% endblock %}
+
+{% block content%} 
+
+    <form action="/userinfo" method ="POST">
+        <p>First name:<input name="first">
+        <p>Last name:<input name="last">
+        <img>Image URL:<input name="image">
+        </br></br>
+        <button> Create! </button>
+    </form> 
+
+    <ul>{% for user in all_users %}
+        <li>{{user.first_name}} {{user.last_name}}</li>
+    </ul>
+    {% endfor %}
+  
+{% endblock %}

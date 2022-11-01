@@ -1,0 +1,19 @@
+{% extends "base.html" %} 
+ 
+{% block title %} HOME {% endblock %}
+
+{% block content%} 
+
+    <h1>This is home page. Hello!!!</h1>  
+    <h4> Users: </h4>
+
+    <ul>{% for user in all_users %}
+        <li><a href="/{{user.id}}">{{user.first_name}} {{user.last_name}}</a></li>
+    </ul>
+    {% endfor %}
+    <form action="/userform">
+    <button> Create new user</button>
+    </form>
+
+  
+{% endblock %}

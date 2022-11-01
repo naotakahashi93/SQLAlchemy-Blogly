@@ -1,0 +1,25 @@
+{% extends "base.html" %} 
+ 
+{% block title %} USER INFO {% endblock %}
+
+{% block content%} 
+    <div style="float: left" >
+    <img src="{{user.image_url}}" style="height:150px"> 
+    </div>
+    <h3>First Name: {{user.first_name}} </h3>
+    <h3>Last Name: {{user.last_name}} </h3>
+    
+    <form action="/{{user.id}}/edit">
+    <button>edit</button>
+    </form>
+
+    <form action="/{{user.id}}/delete" method ="POST">
+    <button>delete</button>
+    </form>
+    
+    <form action="/">
+    <button> Back to home</button>
+    </form>
+
+  
+{% endblock %}
