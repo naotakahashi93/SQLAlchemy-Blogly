@@ -1,0 +1,19 @@
+{% extends "base.html" %} 
+ 
+{% block title %} CREATE POST FORM {% endblock %}
+
+{% block content%} 
+  
+    <h3>Create post for {{user.first_name}} {{user.last_name}} </h3>
+    
+    <form action="/{{user.id}}/posts/new" method = "POST">
+        <p>Title:<input name="post-title">
+        <p>Content:<input name="post-content">
+        </br>
+    </br>
+    <button>Cancel</button>
+    <button>Add!</button>
+    </form> 
+
+  
+{% endblock %}

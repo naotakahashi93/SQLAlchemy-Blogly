@@ -6,8 +6,9 @@
 
     <h1>This is home page. Hello!!!</h1>  
     <h4> Users: </h4>
-
-    <ul>{% for user in all_users %}
+    
+{% for user in all_users %}
+    <ul>
         <li><a href="/{{user.id}}">{{user.first_name}} {{user.last_name}}</a></li>
     </ul>
     {% endfor %}

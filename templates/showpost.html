@@ -1,0 +1,32 @@
+{% extends "base.html" %} 
+ 
+{% block title %} CREATE POST FORM {% endblock %}
+
+{% block content%} 
+  
+    <h2>{{post.title}} </h2>
+    
+   <!-- <p><small>
+    Created at: {{post.created_at}}
+   </small></p> -->
+
+   <p>
+    {{post.content}}
+   </p>
+
+<form action ="/posts/{{post.id}}/edit">
+    <button> Edit </button>
+</form>
+
+<form action ="/{{post.user_id}}">
+    <button> Cancel! </button>
+</form>
+
+<form action ="/posts/{{post.id}}/delete" method = "POST">
+    <button> Delete </button>
+</form>
+
+<form action="/{{post.user_id}}">
+    <button> Back to user page </button>
+</form>
+{% endblock %}

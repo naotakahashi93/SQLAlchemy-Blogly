@@ -16,10 +16,23 @@
     <form action="/{{user.id}}/delete" method ="POST">
     <button>delete</button>
     </form>
-    
+    </br>
+    </br>
+    </br>
+    {% for posts in all_posts %}
+        {% if posts.user_id == user.id %}
+    <ul>
+        <li><a href="/posts/{{posts.id}}">{{posts.title}}</a></li>
+    </ul>
+        {% endif %}
+    {% endfor %}
+
+    <form action="{{user.id}}/posts/new">
+    <button> Add Post </button>
+    </form>
+
+</br>
     <form action="/">
     <button> Back to home</button>
     </form>
-
-  
 {% endblock %}
