@@ -14,6 +14,15 @@
     {{post.content}}
    </p>
 
+   <small> Tags: </small>
+   {% for tag in post.tags %}
+   <form action="/tags/{{tag.id}}" style="display: inline">
+   <button size="10px" style="background: blue;color:white;" font-family="Georgia, serif"> {{tag.name}} </i></button>
+   </form>
+   {% endfor %}
+
+</br>
+</br>
 <form action ="/posts/{{post.id}}/edit">
     <button> Edit </button>
 </form>

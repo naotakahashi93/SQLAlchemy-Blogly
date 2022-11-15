@@ -29,10 +29,6 @@ class Users(db.Model):
                             nullable=True,
                             default="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png")
 
-    # def greet(self):
-    #     """Greet using first name."""
-
-    #     return f"Hello {self.first_name}"
 
 class Post(db.Model):
     """Posts"""
@@ -49,4 +45,38 @@ class Post(db.Model):
                    nullable=False,
                    default=datetime.datetime.now)
     user_id = db.Column(db.Integer,
-                   db.ForeignKey('users.id'))
+                   db.ForeignKey('users.id'),
+                   nullable=False)
+
+
+
+class Tag(db.Model):
+    """Tags"""
+
+    __tablename__  = "tags"
+
+    id = db.Column(db.Integer,
+                   primary_key=True,
+                   autoincrement=True)
+    name = db.Column(db.Text,
+                   nullable=False, 
+                   unique=True)
+
+    posts = db.relationship('Post', 
+                            secondary="posttag",
+                            backref="tags")
+
+
+class PostTag(db.Model):
+    """PostTag table """
+
+    __tablename__  = "posttag"
+
+    postid = db.Column(db.Integer,
+                   db.ForeignKey("posts.id"),
+                   nullable=False,
+                   primary_key=True)
+    tagid = db.Column(db.Integer,
+                   db.ForeignKey("tags.id"),
+                   nullable=False,
+                   primary_key=True)

@@ -11,9 +11,19 @@
         <p>Content:<input name="post-content">
         </br>
     </br>
-    <button>Cancel</button>
+            <p> Add Tags:</p>
+
+            {% for tag in all_tags%}
+            <input type="checkbox" id="{{tag.id}}" name="tags" value="{{tag.id}}">
+            <label for="{{tag.id}}"> {{tag.name}} </label>
+            </br>
+            {% endfor %}
+
     <button>Add!</button>
     </form> 
 
+    <form action="/{{user.id}}">
+   <button>Cancel</button>
+    </form> 
   
 {% endblock %}
